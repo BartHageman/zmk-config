@@ -4,7 +4,7 @@ manifest:
       url-base: https://github.com/wizarddata
   projects:
     - name: zmk
-      remote: wizarddata
+      remote: zmkfirmware
       revision: Ergo_S-1_OE
       import: app/west.yml
   self:
