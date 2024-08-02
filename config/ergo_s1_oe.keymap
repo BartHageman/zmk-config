@@ -11,6 +11,11 @@
 #define DEFAULT 0
 #define FN  1
 
+&sl {
+    ignore-modifiers;
+    release-after-ms = <5000>;
+};
+
 / {
     keymap {
         compatible = "zmk,keymap";
