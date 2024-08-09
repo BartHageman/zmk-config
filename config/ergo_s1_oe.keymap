@@ -46,7 +46,7 @@
 &kp ESC    &kp A      &kp S     &kp D     &kp F     &kp G                                                        &kp H          &kp J     &kp K      &kp L       &kp SEMI   &kp APOS
 &kp LSHFT  &kp Z      &kp X     &kp C     &kp V     &kp B      &kp DEL    &sl 4         &caps_pscrn  &kp INSERT  &kp N          &kp M     &kp COMMA  &kp PERIOD  &kp SLASH  &kp RIGHT_SHIFT
            &kp GRAVE  &kp BSLH  &kp LBKT  &kp RBKT  &kp SPACE  &kp LCTRL  &kp LEFT_GUI  &kp HOME     &kp ENTER   &kp BACKSPACE  &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT
-                                                                          &kp LALT      &kp RALT
+                                                                          &kp LALT      &mo 5
             >;
         };
 
@@ -99,6 +99,17 @@
 &tog 3      &trans  &trans  &trans  &trans  &trans  &kp F2  &trans  &to 0          &trans  &trans  &trans  &trans  &trans  &trans   &trans
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_UP      &trans  &trans  &trans  &trans  &trans  &trans
                                                             &trans  &kp PAGE_DOWN
+            >;
+        };
+
+        Symbols {
+            bindings = <
+&trans         &kp GRAVE     &kp LS(LPAR)  &kp LS(RPAR)   &kp SEMI      &kp COMMA                                                    &trans    &trans         &trans     &trans   &trans  &trans
+&kp LS(PLUS)   &kp LS(LBRC)  &kp SQT       &kp LS(DQT)    &kp LS(RBRC)  &kp LS(QMARK)                                                &trans    &trans         &trans     &trans   &trans  &trans
+&kp LS(POUND)  &kp CARET     &kp EQUAL     &kp LS(UNDER)  &kp LS(DLLR)  &kp LS(STAR)                                                 &kp HOME  &kp PAGE_DOWN  &kp PG_UP  &kp END  &trans  &trans
+&trans         &kp LS(LT)    &kp LS(PIPE)  &kp MINUS      &kp LS(GT)    &kp FSLH       &kp LS(PRCNT)  &kp TILDE      &trans  &trans  &trans    &trans         &trans     &trans   &trans  &trans
+               &kp LS(AT)    &kp LS(AMPS)  &kp LBKT       &kp RBKT      &kp DOT        &kp COMMA      &kp LS(STAR)   &trans  &trans  &trans    &trans         &trans     &trans   &trans
+                                                                                                      &kp LS(COLON)  &trans
             >;
         };
     };
