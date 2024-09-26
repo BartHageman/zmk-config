@@ -28,6 +28,15 @@
         };
     };
 
+    macros {
+        cdot: cdot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(KP_NUMBER_2) &kp LA(KP_NUMBER_5) &kp LA(KP_NUMBER_0)>;
+            label = "CDOT";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -41,12 +50,12 @@
             //                                                         | END  |         | PGDN |
 
             bindings = <
-&kp EQUAL  &kp N1     &kp N2    &kp N3    &kp N4    &kp N5                                                       &kp N6         &kp N7    &kp N8     &kp N9      &kp N0     &kp MINUS
-&kp TAB    &kp Q      &kp W     &kp E     &kp R     &kp T                                                        &kp Y          &kp U     &kp I      &kp O       &kp P      &kp BSLH
-&kp ESC    &kp A      &kp S     &kp D     &kp F     &kp G                                                        &kp H          &kp J     &kp K      &kp L       &kp SEMI   &kp APOS
-&kp LSHFT  &kp Z      &kp X     &kp C     &kp V     &kp B      &kp DEL    &sl 4         &caps_pscrn  &kp INSERT  &kp N          &kp M     &kp COMMA  &kp PERIOD  &kp SLASH  &kp RIGHT_SHIFT
-           &kp GRAVE  &kp BSLH  &kp LBKT  &kp RBKT  &kp SPACE  &kp LCTRL  &kp LEFT_GUI  &kp HOME     &kp ENTER   &kp BACKSPACE  &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT
-                                                                          &kp LALT      &mo 5
+&kp EQUAL  &kp N1     &kp N2  &kp N3    &kp N4    &kp N5                                                       &kp N6         &kp N7    &kp N8     &kp N9      &kp N0     &kp MINUS
+&kp TAB    &kp Q      &kp W   &kp E     &kp R     &kp T                                                        &kp Y          &kp U     &kp I      &kp O       &kp P      &kp BSLH
+&kp ESC    &kp A      &kp S   &kp D     &kp F     &kp G                                                        &kp H          &kp J     &kp K      &kp L       &kp SEMI   &kp APOS
+&kp LSHFT  &kp Z      &kp X   &kp C     &kp V     &kp B      &kp DEL    &sl 4         &caps_pscrn  &kp INSERT  &kp N          &kp M     &kp COMMA  &kp PERIOD  &kp SLASH  &kp RIGHT_SHIFT
+           &kp GRAVE  &cdot   &kp LBKT  &kp RBKT  &kp SPACE  &kp LCTRL  &kp LEFT_GUI  &kp HOME     &kp ENTER   &kp BACKSPACE  &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT
+                                                                        &kp LALT      &mo 5
             >;
         };
 
@@ -104,11 +113,11 @@
 
         Symbols {
             bindings = <
-&trans         &kp GRAVE     &kp LS(LPAR)  &kp LS(RPAR)   &kp SEMI      &kp COMMA                                                 &trans    &trans         &trans     &trans   &trans  &trans
-&kp LS(PLUS)   &kp LS(LBRC)  &kp SQT       &kp LS(DQT)    &kp LS(RBRC)  &kp LS(QMARK)                                             &trans    &trans         &trans     &trans   &trans  &trans
-&kp LS(POUND)  &kp CARET     &kp EQUAL     &kp LS(UNDER)  &kp LS(DLLR)  &kp LS(STAR)                                              &kp HOME  &kp PAGE_DOWN  &kp PG_UP  &kp END  &trans  &trans
-&trans         &kp LS(LT)    &kp LS(PIPE)  &kp MINUS      &kp LS(GT)    &kp FSLH       &kp PERIOD  &kp STAR       &trans  &trans  &trans    &trans         &trans     &trans   &trans  &trans
-               &kp LS(AT)    &kp LS(AMPS)  &kp LBKT       &kp RBKT      &kp PERCENT    &kp COLON   &kp BACKSLASH  &trans  &trans  &trans    &trans         &trans     &trans   &trans
+&trans         &kp GRAVE     &kp LS(LPAR)  &kp LS(RPAR)   &kp SEMI      &kp COMMA                                                 &trans    &trans         &trans             &trans           &trans      &trans
+&kp LS(PLUS)   &kp LS(LBRC)  &kp SQT       &kp LS(DQT)    &kp LS(RBRC)  &kp LS(QMARK)                                             &trans    &trans         &trans             &trans           &trans      &trans
+&kp LS(POUND)  &kp CARET     &kp EQUAL     &kp LS(UNDER)  &kp LS(DLLR)  &kp LS(STAR)                                              &kp HOME  &kp PAGE_DOWN  &kp PG_UP          &kp END          &trans      &trans
+&trans         &kp LS(LT)    &kp LS(PIPE)  &kp MINUS      &kp LS(GT)    &kp FSLH       &kp PERIOD  &kp STAR       &trans  &trans  &trans    &trans         &trans             &trans           &trans      &trans
+               &kp LS(AT)    &kp LS(AMPS)  &kp LBKT       &kp RBKT      &kp PERCENT    &kp COLON   &kp BACKSLASH  &trans  &trans  &trans    &kp K_PREV     &kp K_VOLUME_DOWN  &kp K_VOLUME_UP  &kp K_NEXT
                                                                                                    &kp SEMICOLON  &trans
             >;
         };
@@ -121,6 +130,17 @@
 &trans  &trans          &trans          &trans       &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans             &trans       &trans           &trans                   &trans
         &trans          &trans          &trans       &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans             &trans       &trans           &trans
                                                                                        &trans  &trans
+            >;
+        };
+
+        layer_7 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                                        &trans  &trans
             >;
         };
     };
