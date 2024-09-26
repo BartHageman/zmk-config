@@ -32,7 +32,14 @@
         cdot: cdot {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LA(KP_NUMBER_2) &kp LA(KP_NUMBER_5) &kp LA(KP_NUMBER_0)>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_2 &kp KP_NUMBER_5 &kp KP_NUMBER_0>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
             label = "CDOT";
         };
     };
@@ -113,11 +120,11 @@
 
         Symbols {
             bindings = <
-&trans         &kp GRAVE     &kp LS(LPAR)  &kp LS(RPAR)   &kp SEMI      &kp COMMA                                                 &trans    &trans         &trans             &trans           &trans      &trans
-&kp LS(PLUS)   &kp LS(LBRC)  &kp SQT       &kp LS(DQT)    &kp LS(RBRC)  &kp LS(QMARK)                                             &trans    &trans         &trans             &trans           &trans      &trans
-&kp LS(POUND)  &kp CARET     &kp EQUAL     &kp LS(UNDER)  &kp LS(DLLR)  &kp LS(STAR)                                              &kp HOME  &kp PAGE_DOWN  &kp PG_UP          &kp END          &trans      &trans
-&trans         &kp LS(LT)    &kp LS(PIPE)  &kp MINUS      &kp LS(GT)    &kp FSLH       &kp PERIOD  &kp STAR       &trans  &trans  &trans    &trans         &trans             &trans           &trans      &trans
-               &kp LS(AT)    &kp LS(AMPS)  &kp LBKT       &kp RBKT      &kp PERCENT    &kp COLON   &kp BACKSLASH  &trans  &trans  &trans    &kp K_PREV     &kp K_VOLUME_DOWN  &kp K_VOLUME_UP  &kp K_NEXT
+&trans         &kp GRAVE     &kp LS(LPAR)  &kp LS(RPAR)   &kp SEMI      &kp COMMA                                                 &trans    &trans          &trans        &trans        &trans      &trans
+&kp LS(PLUS)   &kp LS(LBRC)  &kp SQT       &kp LS(DQT)    &kp LS(RBRC)  &kp LS(QMARK)                                             &trans    &trans          &trans        &trans        &trans      &trans
+&kp LS(POUND)  &kp CARET     &kp EQUAL     &kp LS(UNDER)  &kp LS(DLLR)  &kp LS(STAR)                                              &kp HOME  &kp PAGE_DOWN   &kp PG_UP     &kp END       &trans      &trans
+&trans         &kp LS(LT)    &kp LS(PIPE)  &kp MINUS      &kp LS(GT)    &kp FSLH       &kp PERIOD  &kp STAR       &trans  &trans  &trans    &trans          &trans        &trans        &trans      &trans
+               &kp LS(AT)    &kp LS(AMPS)  &kp LBKT       &kp RBKT      &kp PERCENT    &kp COLON   &kp BACKSLASH  &trans  &trans  &trans    &kp C_PREVIOUS  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT
                                                                                                    &kp SEMICOLON  &trans
             >;
         };
