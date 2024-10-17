@@ -1,10 +1,10 @@
 manifest:
   remotes:
-    - name: zmkfirmware
+    - name: zmk
       url-base: https://github.com/arcanemachine
   projects:
-    - name: zmk-ergo-s-1
-      remote: zmkfirmware
+    - name: zmk
+      remote: zmk-ergo-s-1
       revision: main
       import: app/west.yml
   self:
