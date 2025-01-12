@@ -12,6 +12,6 @@ manifest:
       import: app/west.yml
     - name: zmk-leader-key
       remote: urob
-      revision: v0.1 # Set to same version as ZMK.
+      revision: v0.1+locality  # Set to same version as ZMK.
   self:
     path: config
