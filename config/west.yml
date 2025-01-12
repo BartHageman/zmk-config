@@ -2,11 +2,16 @@ manifest:
   remotes:
     - name: zmk
       url-base: https://github.com/arcanemachine
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk-ergo-s-1
       remote: zmk
       path: zmk
       revision: main
       import: app/west.yml
+    - name: zmk-leader-key
+      remote: urob
+      revision: v0.1 # Set to same version as ZMK.
   self:
     path: config
