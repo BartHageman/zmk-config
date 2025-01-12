@@ -1,11 +1,11 @@
 manifest:
   remotes:
     - name: zmk
-      url-base: https://github.com/arcanemachine
+      url-base: https://github.com/BartHageman
     - name: urob
       url-base: https://github.com/urob
   projects:
-    - name: zmk-ergo-s-1
+    - name: zmk
       remote: zmk
       path: zmk
       revision: main
