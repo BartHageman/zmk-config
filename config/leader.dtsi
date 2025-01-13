@@ -23,14 +23,14 @@ ZMK_LEADER_SEQUENCE(reset,      &sys_reset,     R E S E T)
 ZMK_LEADER_SEQUENCE(boot,       &bootloader,    B O O T)
 
 // Layer toggles
-ZMK_LEADER_SEQUENCE(toggle_fn,     &tog 1,          N1)  // Toggle function layer
-ZMK_LEADER_SEQUENCE(toggle_num,    &tog 2,          N2)  // Toggle numpad layer
+//ZMK_LEADER_SEQUENCE(toggle_fn,     &tog 1,          N1)  // Toggle function layer
+//ZMK_LEADER_SEQUENCE(toggle_num,    &tog 2,          N2)  // Toggle numpad layer
 
 // Bluetooth profiles
-ZMK_LEADER_SEQUENCE(bt1,        &bt BT_SEL 0,   B T N1)
-ZMK_LEADER_SEQUENCE(bt2,        &bt BT_SEL 1,   B T N2)
-ZMK_LEADER_SEQUENCE(bt3,        &bt BT_SEL 2,   B T N3)
-ZMK_LEADER_SEQUENCE(bt_clear,   &bt BT_CLR,     B T C)
+//ZMK_LEADER_SEQUENCE(bt1,        &bt BT_SEL 0,   B T N1)
+//ZMK_LEADER_SEQUENCE(bt2,        &bt BT_SEL 1,   B T N2)
+//ZMK_LEADER_SEQUENCE(bt3,        &bt BT_SEL 2,   B T N3)
+//ZMK_LEADER_SEQUENCE(bt_clear,   &bt BT_CLR,     B T C)
 
 // Special keys
-ZMK_LEADER_SEQUENCE(rename,     &kp F2,         DELETE)  // Leader + DELETE outputs F2
+//ZMK_LEADER_SEQUENCE(rename,     &kp F2,         DELETE)  // Leader + DELETE outputs F2
