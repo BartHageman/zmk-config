@@ -31,7 +31,7 @@
         leader: leader {
                     compatible = "zmk,behavior-leader-key";
                     #binding-cells = <0>;
-                    // usb { sequence = <U S B>; bindings = <&out OUT_USB>; };
+                    usb { sequence = <U S B>; bindings = <&out OUT_USB>; };
                     // ble { sequence = <B L E>; bindings = <&out OUT_BLE>; };
                     // bt0 { sequence = <B T N0>; bindings = <&bt BT_SEL 0>; };
                     // bt1 { sequence = <B T N1>; bindings = <&bt BT_SEL 1>; };
