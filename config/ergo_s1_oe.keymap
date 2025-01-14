@@ -31,17 +31,17 @@
         leader: leader {
                     compatible = "zmk,behavior-leader-key";
                     #binding-cells = <0>;
-                    usb { sequence = <U S B>; bindings = <&out OUT_USB>; };
-                    ble { sequence = <B L E>; bindings = <&out OUT_BLE>; };
-                    bt0 { sequence = <B T N0>; bindings = <&bt BT_SEL 0>; };
-                    bt1 { sequence = <B T N1>; bindings = <&bt BT_SEL 1>; };
-                    bt2 { sequence = <B T N2>; bindings = <&bt BT_SEL 2>; };
-                    btc { sequence = <C L E A R>; bindings = <&bt BT_CLR>; };
-                    boot { sequence = <B O O T>; bindings = <&bootloader>; };
-                    reset { sequence = <R E S E T>; bindings = <&sys_reset>; };
-                    toggle_fn { sequence = <N1>; bindings = <&tog 1>;};  // Toggle function layer
-                    toggle_num { sequence = <N2>; bindings = <&tog 2>;};  // Toggle numpad layer
-                    rename { sequence = <DELETE>; bindings = <&kp F2>;};  // Leader + DELETE outputs F2
+                    // usb { sequence = <U S B>; bindings = <&out OUT_USB>; };
+                    // ble { sequence = <B L E>; bindings = <&out OUT_BLE>; };
+                    // bt0 { sequence = <B T N0>; bindings = <&bt BT_SEL 0>; };
+                    // bt1 { sequence = <B T N1>; bindings = <&bt BT_SEL 1>; };
+                    // bt2 { sequence = <B T N2>; bindings = <&bt BT_SEL 2>; };
+                    // btc { sequence = <C L E A R>; bindings = <&bt BT_CLR>; };
+                    // boot { sequence = <B O O T>; bindings = <&bootloader>; };
+                    // reset { sequence = <R E S E T>; bindings = <&sys_reset>; };
+                    // toggle_fn { sequence = <N1>; bindings = <&tog 1>;};  // Toggle function layer
+                    // toggle_num { sequence = <N2>; bindings = <&tog 2>;};  // Toggle numpad layer
+                    // rename { sequence = <DELETE>; bindings = <&kp F2>;};  // Leader + DELETE outputs F2
                 };
 
 
