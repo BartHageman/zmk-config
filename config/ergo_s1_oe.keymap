@@ -1,8 +1,8 @@
 /*
-* Copyright (c) 2021 The ZMK Contributors
-*
-* SPDX-License-Identifier: MIT
-*/
+ * Copyright (c) 2021 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
 
 #include <behaviors.dtsi>
 #include "zmk-helpers/helper.h"
@@ -15,134 +15,132 @@
 #define FN  1
 
 &sl {
-  ignore-modifiers;
-  release-after-ms = <5000>;
-};
-
-
-macros {
-  cdot: cdot {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings =
-      <&macro_press>,
-      <&kp LEFT_ALT>,
-      <&macro_tap>,
-      <&kp KP_NUMBER_2 &kp KP_NUMBER_5 &kp KP_NUMBER_0>,
-      <&macro_release>,
-      <&kp LEFT_ALT>;
-
-    label = "CDOT";
-  };
-  mc_reload_pack: mc_reload_pack{
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings =
-      <&macro_press &kp F3>,
-      <&macro_tap &kp T>,
-      <&macro_release &kp F3>
-      ;
-
-    label = "Reload Resource Packs";
-  };
+    ignore-modifiers;
+    release-after-ms = <5000>;
 };
 
 / {
-  behaviors {
-    caps_pscrn: caps_pscrn {
-      compatible = "zmk,behavior-tap-dance";
-      label = "CAPS_PSCRN";
-      #binding-cells = <0>;
-      bindings = <&kp CAPS>, <&kp PRINTSCREEN>;
+    macros {
+        cdot: cdot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_2 &kp KP_NUMBER_5 &kp KP_NUMBER_0>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
 
-      tapping-term-ms = <200>;
+            label = "CDOT";
+        };
+        mc_reload_pack: mc_reload_pack{
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp F3>,
+                <&macro_tap &kp T>,
+                <&macro_release &kp F3>
+                ;
+
+            label = "Reload Resource Packs";
+        };
     };
-    leader: leader {
-      compatible = "zmk,behavior-leader-key";
-      #binding-cells = <0>;
-      usb { sequence = <U S B>; bindings = <&out OUT_USB>; };
-      ble { sequence = <B L E>; bindings = <&out OUT_BLE>; };
-      bt0 { sequence = <B T N0>; bindings = <&bt BT_SEL 0>; };
-      bt1 { sequence = <B T N1>; bindings = <&bt BT_SEL 1>; };
-      bt2 { sequence = <B T N2>; bindings = <&bt BT_SEL 2>; };
-      btc { sequence = <C L E A R>; bindings = <&bt BT_CLR>; };
-      boot { sequence = <B O O T>; bindings = <&bootloader>; };
-      reset { sequence = <R E S E T>; bindings = <&sys_reset>; };
-      toggle_fn { sequence = <N1>; bindings = <&tog 1>;};  // Toggle function layer
-      toggle_num { sequence = <N2>; bindings = <&tog 2>;};  // Toggle numpad layer
-      rename { sequence = <DELETE>; bindings = <&kp F2>;};  // Leader + DELETE outputs F2
-      reload_resourcepack{ sequence = <MCR>; bindings = <&mc_reload_pack>;};  // Reload Minecraft Resource Pack
-    };
+    behaviors {
+        caps_pscrn: caps_pscrn {
+            compatible = "zmk,behavior-tap-dance";
+            label = "CAPS_PSCRN";
+            #binding-cells = <0>;
+            bindings = <&kp CAPS>, <&kp PRINTSCREEN>;
+
+            tapping-term-ms = <200>;
+        };
+        leader: leader {
+                    compatible = "zmk,behavior-leader-key";
+                    #binding-cells = <0>;
+                    usb { sequence = <U S B>; bindings = <&out OUT_USB>; };
+                    ble { sequence = <B L E>; bindings = <&out OUT_BLE>; };
+                    bt0 { sequence = <B T N0>; bindings = <&bt BT_SEL 0>; };
+                    bt1 { sequence = <B T N1>; bindings = <&bt BT_SEL 1>; };
+                    bt2 { sequence = <B T N2>; bindings = <&bt BT_SEL 2>; };
+                    btc { sequence = <C L E A R>; bindings = <&bt BT_CLR>; };
+                    boot { sequence = <B O O T>; bindings = <&bootloader>; };
+                    reset { sequence = <R E S E T>; bindings = <&sys_reset>; };
+                    toggle_fn { sequence = <N1>; bindings = <&tog 1>;};  // Toggle function layer
+                    toggle_num { sequence = <N2>; bindings = <&tog 2>;};  // Toggle numpad layer
+                    rename { sequence = <DELETE>; bindings = <&kp F2>;};  // Leader + DELETE outputs F2
+                    reload_resourcepack{ sequence = <MCR>; bindings = <&mc_reload_pack>;};  // Reload Minecraft Resource Pack
+                };
 
 
-    leader_tapdance: leader_tapdance {
-      compatible = "zmk,behavior-tap-dance";
-      label = "LEADER_TAPDANCE";
-      #binding-cells = <0>;
-      bindings = <&leader>, <&to 0>;
-    };
-  };
-
-
-  combos {
-    compatible = "zmk,combos";
-
-    Softoff {
-      bindings = <&soft_off>;
-      key-positions = <43 44>;
-    };
-  };
-
-  keymap {
-    compatible = "zmk,keymap";
-
-    default_layer {
-      // ---------------------------------------------------------------------------------------------------------------------------------
-      // | ESC  |  1   |  2   |  3   |  4   |  5   |                                                   |  6   |  7   |  8   |  9   |  0   | BSPC |
-      // | WIN  |  Q   |  W   |  E   |  R   |  T   |                                                   |  Y   |  U   |  I   |  O   |  P   | EQL  |
-      // | TAB  |  A   |  S   |  D   |  F   |  G   |                                                   |  H   |  J   |  K   |  L   | SCLN | QUOT |
-      // | LCTL |  Z   |  X   |  C   |  V   |  B   |      | CTL  | ALT  |         | CAPS | CTL  |      |  N   |  M   | COMM | DOT  | SLSH | MINS |
-      //        | GRV  | BSLS | LEFT | RGHT |      | SHFT |  FN  | HOME |         | PGUP | ENT  | SPC  |      |  UP  |  DN  | LBKT | RBKT |
-      //                                                         | END  |         | PGDN |
-
-      bindings = <
-        &kp EQUAL  &kp N1     &kp N2  &kp N3    &kp N4    &kp N5                                                           &kp N6         &kp N7    &kp N8     &kp N9      &kp N0     &kp MINUS
-        &kp TAB    &kp Q      &kp W   &kp E     &kp R     &kp T                                                            &kp Y          &kp U     &kp I      &kp O       &kp P      &kp BSLH
-        &kp ESC    &kp A      &kp S   &kp D     &kp F     &kp G                                                            &kp H          &kp J     &kp K      &kp L       &kp SEMI   &kp APOS
-        &kp LSHFT  &kp Z      &kp X   &kp C     &kp V     &kp B      &kp DEL    &leader_tapdance  &caps_pscrn  &kp INSERT  &kp N          &kp M     &kp COMMA  &kp PERIOD  &kp SLASH  &kp RIGHT_SHIFT
-        &kp GRAVE  &cdot   &kp LBKT  &kp RBKT  &kp SPACE  &kp LCTRL  &kp LEFT_GUI      &kp HOME     &kp ENTER   &kp BACKSPACE  &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT
-        &kp LALT          &mo 1
-      >;
+        leader_tapdance: leader_tapdance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LEADER_TAPDANCE";
+            #binding-cells = <0>;
+            bindings = <&leader>, <&to 0>;
+        };
     };
 
-    fn_layer {
-      // ---------------------------------------------------------------------------------------------------------------------------------
-      // |BT_CLR|  F1  |  F2  |  F3  |  F4  |  F5  |                                                   |      | NLCK |  =   |  /   |  *   |      |
-      // |      |  F6  |  F7  |  F8  |  F9  |  F10 |                                                   |      |  7   |  8   |  9   |  -   |      |
-      // |      |      |      |      |      |      |                                                   |      |  4   |  5   |  6   |  +   |      |
-      // |      |      |      |      |      | PTSC |      |      |      |         |      |      |      |      |  1   |  2   |  3   | ENT  |      |
-      //        |      | INS  |      |      |      |      |  FN  |      |         |      |      |      |      |      |      |  .   | ENT  |
-      //                                                         |      |         |      |
 
-      bindings = <
-        &tog 2  &kp F1        &kp F2        &kp F3        &kp F4      &kp F5                                            &kp F6    &kp F7      &kp F8             &kp F9        &kp F10     &kp F11
-        &trans  &trans        &trans        &trans        &trans      &trans                                            &trans    &trans      &trans             &trans        &trans      &kp F12
-        &trans  &trans        &trans        &trans        &trans      &trans                                            &kp HOME  &kp PG_DN   &kp PG_UP          &kp END       &trans      &trans
-        &trans  &trans        &trans        &trans        &trans      &trans            &kp F2  &trans  &to 0   &trans  &trans    &trans      &trans             &trans        &trans      &trans
+    combos {
+        compatible = "zmk,combos";
+
+        Softoff {
+            bindings = <&soft_off>;
+            key-positions = <43 44>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            // | ESC  |  1   |  2   |  3   |  4   |  5   |                                                   |  6   |  7   |  8   |  9   |  0   | BSPC |
+            // | WIN  |  Q   |  W   |  E   |  R   |  T   |                                                   |  Y   |  U   |  I   |  O   |  P   | EQL  |
+            // | TAB  |  A   |  S   |  D   |  F   |  G   |                                                   |  H   |  J   |  K   |  L   | SCLN | QUOT |
+            // | LCTL |  Z   |  X   |  C   |  V   |  B   |      | CTL  | ALT  |         | CAPS | CTL  |      |  N   |  M   | COMM | DOT  | SLSH | MINS |
+            //        | GRV  | BSLS | LEFT | RGHT |      | SHFT |  FN  | HOME |         | PGUP | ENT  | SPC  |      |  UP  |  DN  | LBKT | RBKT |
+            //                                                         | END  |         | PGDN |
+
+            bindings = <
+&kp EQUAL  &kp N1     &kp N2  &kp N3    &kp N4    &kp N5                                                           &kp N6         &kp N7    &kp N8     &kp N9      &kp N0     &kp MINUS
+&kp TAB    &kp Q      &kp W   &kp E     &kp R     &kp T                                                            &kp Y          &kp U     &kp I      &kp O       &kp P      &kp BSLH
+&kp ESC    &kp A      &kp S   &kp D     &kp F     &kp G                                                            &kp H          &kp J     &kp K      &kp L       &kp SEMI   &kp APOS
+&kp LSHFT  &kp Z      &kp X   &kp C     &kp V     &kp B      &kp DEL    &leader_tapdance  &caps_pscrn  &kp INSERT  &kp N          &kp M     &kp COMMA  &kp PERIOD  &kp SLASH  &kp RIGHT_SHIFT
+           &kp GRAVE  &cdot   &kp LBKT  &kp RBKT  &kp SPACE  &kp LCTRL  &kp LEFT_GUI      &kp HOME     &kp ENTER   &kp BACKSPACE  &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT
+                                                                        &kp LALT          &mo 1
+            >;
+        };
+
+        fn_layer {
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            // |BT_CLR|  F1  |  F2  |  F3  |  F4  |  F5  |                                                   |      | NLCK |  =   |  /   |  *   |      |
+            // |      |  F6  |  F7  |  F8  |  F9  |  F10 |                                                   |      |  7   |  8   |  9   |  -   |      |
+            // |      |      |      |      |      |      |                                                   |      |  4   |  5   |  6   |  +   |      |
+            // |      |      |      |      |      | PTSC |      |      |      |         |      |      |      |      |  1   |  2   |  3   | ENT  |      |
+            //        |      | INS  |      |      |      |      |  FN  |      |         |      |      |      |      |      |      |  .   | ENT  |
+            //                                                         |      |         |      |
+
+            bindings = <
+&tog 2  &kp F1        &kp F2        &kp F3        &kp F4      &kp F5                                            &kp F6    &kp F7      &kp F8             &kp F9        &kp F10     &kp F11
+&trans  &trans        &trans        &trans        &trans      &trans                                            &trans    &trans      &trans             &trans        &trans      &kp F12
+&trans  &trans        &trans        &trans        &trans      &trans                                            &kp HOME  &kp PG_DN   &kp PG_UP          &kp END       &trans      &trans
+&trans  &trans        &trans        &trans        &trans      &trans            &kp F2  &trans  &to 0   &trans  &trans    &trans      &trans             &trans        &trans      &trans
         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR  &kp C_PLAY_PAUSE  &trans  &trans  &trans  &trans  &trans    &kp C_PREV  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &kp C_NEXT
-        &trans  &trans
-      >;
-    };
+                                                                                        &trans  &trans
+            >;
+        };
 
-    Numpad {
-      bindings = <
-        &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &kp KP_NUMLOCK  &kp KP_SLASH     &kp KP_ASTERISK  &kp KP_SUBTRACT  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &kp KP_N7       &kp KP_N8        &kp KP_N9        &kp KP_PLUS      &trans
-        &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &kp KP_N4       &kp KP_N5        &kp KP_N6        &kp KP_ENTER     &trans
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp KP_N1       &kp KP_N2        &kp KP_N3        &kp KP_ENTER     &trans
+        Numpad {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &kp KP_NUMLOCK  &kp KP_SLASH     &kp KP_ASTERISK  &kp KP_SUBTRACT  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &kp KP_N7       &kp KP_N8        &kp KP_N9        &kp KP_PLUS      &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &kp KP_N4       &kp KP_N5        &kp KP_N6        &kp KP_ENTER     &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp KP_N1       &kp KP_N2        &kp KP_N3        &kp KP_ENTER     &trans
         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp KP_N0       &kp KP_NUMBER_0  &kp KP_DOT       &trans
-        &trans  &trans
-      >;
+                                                        &trans  &trans
+            >;
+        };
     };
-  };
 };
