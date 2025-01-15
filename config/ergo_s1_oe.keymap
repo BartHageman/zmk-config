@@ -43,7 +43,7 @@
                     toggle_fn { sequence = <N1>; bindings = <&tog 1>;};  // Toggle function layer
                     toggle_num { sequence = <N2>; bindings = <&tog 2>;};  // Toggle numpad layer
                     rename { sequence = <DELETE>; bindings = <&kp F2>;};  // Leader + DELETE outputs F2
-                    reload_resourcepack{ sequence = <MCR>; bindings = <&kp F3 &kp T>;};  // Reload Minecraft Resource Pack
+                    reload_resourcepack{ sequence = <MCR>; bindings = <&mc_reload_pack>;};  // Reload Minecraft Resource Pack
                 };
 
 
@@ -68,6 +68,17 @@
                 <&kp LEFT_ALT>;
 
             label = "CDOT";
+        };
+        mc_reload_pack: mc_reload_pack{
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp F3>,
+                <&macro_tap &kp T>,
+                <&macro_release &kp F3>
+                ;
+
+            label = "Reload Resource Packs";
         };
     };
 
