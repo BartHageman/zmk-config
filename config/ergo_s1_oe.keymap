@@ -69,7 +69,7 @@
                     toggle_fn { sequence = <N1>; bindings = <&tog 1>;};  // Toggle function layer
                     toggle_num { sequence = <N2>; bindings = <&tog 2>;};  // Toggle numpad layer
                     rename { sequence = <DELETE>; bindings = <&kp F2>;};  // Leader + DELETE outputs F2
-                    reload_resourcepack{ sequence = <MCR>; bindings = <&mc_reload_pack>;};  // Reload Minecraft Resource Pack
+                    reload_resourcepack{ sequence = <M C R>; bindings = <&mc_reload_pack>;};  // Reload Minecraft Resource Pack
                 };
 
 
