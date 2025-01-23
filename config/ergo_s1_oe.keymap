@@ -10,13 +10,16 @@
 #define DEFAULT 0
 #define FN  1
 
-#include "zmk-helpers/helper.h"
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/outputs.h>
+#include "zmk-helpers/helper.h"
+#define DEFAULT 0
+#define FN  1
+#include "zmk-helpers/helper.h"
 
 &sl {
     ignore-modifiers;
