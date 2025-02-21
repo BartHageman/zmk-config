@@ -4,24 +4,19 @@
  * SPDX-License-Identifier: MIT
  */
 //#include "leader.dtsi"
-
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 #define DEFAULT 0
 #define FN  1
-
-#include "zmk-helpers/helper.h"
-
-#define DEFAULT 0
-#define FN  1
-
-#include "zmk-helpers/helper.h"
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/outputs.h>
+#include "zmk-helpers/helper.h"
+#define DEFAULT 0
+#define FN  1
+#include "zmk-helpers/helper.h"
 
 &sl {
     ignore-modifiers;
@@ -121,6 +116,10 @@
                 sequence = <N2>;
                 bindings = <&tog 2>;
             };  // Toggle numpad layer
+            toggle_stick {
+                sequence = <S T I C K>;
+                bindings = <&tog 4>;
+            };  // Toggle sticky layer
             rename {
                 sequence = <DELETE>;
                 bindings = <&kp F2>;
