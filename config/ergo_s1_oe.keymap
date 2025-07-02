@@ -15,11 +15,13 @@
 #define DEFAULT 0
 #define FN  1
 
-#include "zmk-helpers/helper.h"
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/outputs.h>
+#include "zmk-helpers/helper.h"
 
 &sl {
     ignore-modifiers;
@@ -95,9 +97,18 @@
                 sequence = <B T N2>;
                 bindings = <&bt BT_SEL 2>;
             };
+            bt3 {
+                sequence = <B T N3>;
+                bindings = <&bt BT_SEL 3>;
+            };
+
+            bt4 {
+                sequence = <B T N4>;
+                bindings = <&bt BT_SEL 4>;
+            };
 
             btc {
-                sequence = <C L E A R>;
+                sequence = <B T C L E A R>;
                 bindings = <&bt BT_CLR>;
             };
 
@@ -115,6 +126,10 @@
                 sequence = <N1>;
                 bindings = <&tog 1>;
             };  // Toggle function layer
+            toggle_fn {
+                sequence = <G A M E>;
+                bindings = <&tog 5>;
+            };  // Toggle Gaming layer
             toggle_num {
                 sequence = <N2>;
                 bindings = <&tog 2>;
