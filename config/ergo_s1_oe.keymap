@@ -126,7 +126,7 @@
                 sequence = <N1>;
                 bindings = <&tog 1>;
             };  // Toggle function layer
-            toggle_fn {
+            toggle_game {
                 sequence = <G A M E>;
                 bindings = <&tog 5>;
             };  // Toggle Gaming layer
